@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Executive Brief | AI Leadership Workshop | Sans Noise</title>
+<meta name="description" content="A structured full-day workshop for senior leaders. Small cohorts, real scenarios, practical outcomes. Delivered in-person across Asia-Pacific.">
+<link rel="stylesheet" href="styles/sn-tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<style>
+  /* ============================================================
+     SANS NOISE · THE PROGRAM
+     ============================================================ */
+
+  .page-hero .page-hero__title { font-size: clamp(33px, 4.3vw, 55px); line-height: 1.1; max-width: none; text-wrap: pretty; }
+  .page-hero .page-hero__sub { font-size: clamp(17px, 1.4vw, 20px); max-width: 66ch; }
+
+  /* ---------- RIGHT FIT ---------- */
+  .fit .eyebrow { margin-bottom: 22px; }
+  .fit__head { margin: 0 0 16px; font-size: clamp(26px, 2.8vw, 40px); line-height: 1.16; max-width: none; }
+  .fit__lead { margin: 0 0 48px; font-size: var(--fs-body-lg); line-height: var(--lh-relaxed); color: var(--fg-body); max-width: 56ch; }
+  .fit__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  @media (max-width: 760px) { .fit__cols { grid-template-columns: 1fr; } }
+  .fit__col { padding: 32px 32px 36px; border-radius: var(--radius-lg); border: 1px solid var(--border-hair); background: var(--sn-white); box-shadow: var(--shadow-sm); }
+  .fit__col.yes { background: var(--sn-forest-tint); border-color: rgba(5,150,105,0.18); }
+  .fit__col.no { background: var(--sn-violet-tint); border-color: rgba(124,58,237,0.16); }
+  .fit__col .tag {
+    display: inline-flex; align-items: center; gap: 9px; margin-bottom: 20px;
+    font-family: var(--font-sans); font-size: var(--fs-eyebrow); font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-eyebrow); text-transform: uppercase;
+  }
+  .fit__col.yes .tag { color: var(--sn-forest); }
+  .fit__col.no .tag { color: var(--sn-violet); }
+  .fit__col .tag .dot { width: 8px; height: 8px; border-radius: 999px; }
+  .fit__col.yes .tag .dot { background: var(--sn-forest); }
+  .fit__col.no .tag .dot { background: var(--sn-violet); }
+  .fit__col p { margin: 0; font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--fg-body); }
+  .fit__note { margin-top: 28px; }
+  .fit__plainnote { margin: 32px 0 0; font-size: var(--fs-body-lg); line-height: var(--lh-relaxed); color: var(--fg-1); max-width: 60ch; }
+
+  /* ---------- PROGRAM IN DETAIL ---------- */
+  .detail .eyebrow { margin-bottom: 22px; }
+  .detail__head { margin: 0 0 52px; font-size: clamp(26px, 2.8vw, 40px); line-height: 1.16; max-width: none; }
+  .phase {
+    display: grid; grid-template-columns: 168px 1fr; gap: 44px;
+    padding: 40px 0; border-top: 1px solid var(--border-hair); align-items: start;
+  }
+  .phase:last-child { border-bottom: 1px solid var(--border-hair); }
+  @media (max-width: 760px) { .phase { grid-template-columns: 1fr; gap: 14px; padding: 32px 0; } }
+  .phase__rail { display: flex; flex-direction: column; gap: 6px; }
+  .phase__num { font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: clamp(40px, 4.6vw, 60px); line-height: 0.92; color: var(--sn-midblue); }
+  .phase__kicker { font-family: var(--font-sans); font-size: var(--fs-eyebrow); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--fg-2); }
+  .phase__title { margin: 0 0 14px; font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-h5); line-height: 1.2; color: var(--fg-1); }
+  .phase__body { margin: 0; font-size: var(--fs-body-lg); line-height: var(--lh-relaxed); color: var(--fg-body); max-width: 62ch; }
+  .phase--book .phase__title { color: var(--sn-navy); }
+  .phase__num.n1 { color: var(--sn-violet); }
+  .phase__num.n3 { color: var(--sn-forest); }
+
+  /* ---------- A DAY ---------- */
+  .day__grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 64px; align-items: center; }
+  @media (max-width: 880px) { .day__grid { grid-template-columns: 1fr; gap: 44px; } }
+  .day .eyebrow { margin-bottom: 22px; }
+  .day__head { margin: 0 0 28px; font-size: clamp(26px, 2.8vw, 38px); line-height: 1.16; max-width: 20ch; }
+  .day__body p { margin: 0 0 18px; font-size: var(--fs-body-lg); line-height: var(--lh-relaxed); color: var(--fg-body); max-width: 56ch; }
+  .day__body p:last-child { margin-bottom: 0; }
+
+  /* ---------- LOGISTICS ---------- */
+  .specs .eyebrow { margin-bottom: 22px; }
+  .specs__head { margin: 0 0 40px; font-size: clamp(26px, 2.8vw, 38px); line-height: 1.16; max-width: 18ch; }
+  .specs__list { display: grid; gap: 0; max-width: 760px; }
+  .spec { display: grid; grid-template-columns: 220px 1fr; gap: 32px; padding: 22px 0; border-top: 1px solid var(--border-hair); align-items: baseline; }
+  .spec:last-child { border-bottom: 1px solid var(--border-hair); }
+  @media (max-width: 600px) { .spec { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; } }
+  .spec__k { font-family: var(--font-sans); font-size: var(--fs-eyebrow); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--fg-2); }
+  .spec__v { font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: var(--fg-1); }
+</style>
+</head>
+<body>
+
+  <!-- ============== HEADER ============== -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Sans Noise home">
+        <img src="assets/logo-horizontal.png" alt="Sans Noise">
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="program.html" aria-current="page">The Program</a>
+        <!-- <a href="perspectives.html">Perspectives</a> -->
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============== HERO ============== -->
+    <section class="page-hero" data-screen-label="Program Hero">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="eyebrow">The Program</p>
+          <h1 class="page-hero__title display-type">The Executive Brief</h1>
+          <p class="page-hero__sub">A full day for senior leaders who want to move from awareness to working confidence, in their own use of AI, and in how they think about it for their organizations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== IS THIS THE RIGHT FIT ============== -->
+    <section class="band band--pale fit" data-screen-label="Right Fit">
+      <div class="wrap">
+        <p class="eyebrow reveal">Is this the right fit?</p>
+        <h2 class="fit__head display-type reveal">Getting the match right matters more than filling a cohort.</h2>
+        <p class="fit__lead reveal">The program is designed for a specific kind of participant.</p>
+        <div class="fit__cols">
+          <div class="fit__col yes reveal">
+            <span class="tag"><span class="dot"></span>The right fit</span>
+            <p>Senior leaders who feel they have not yet developed a working relationship with AI. Executives who are responsible for, or will be asked to weigh in on, AI decisions at the organizational level. Groups who want to learn together, so the afternoon's discussion lands in shared context rather than individual takeaways.</p>
+          </div>
+          <div class="fit__col no reveal">
+            <span class="tag"><span class="dot"></span>Not the right fit</span>
+            <p>Technical users looking for coding, engineering, or development applications. Entry or mid-level employees, where the content is useful but the use-case focus is senior. Anyone looking for a specific product assessment or deployment strategy, which is a different engagement, and not one Sans Noise offers.</p>
+          </div>
+        </div>
+        <div class="fit__note reveal">
+          <p class="fit__plainnote">No technical background is required. The only prerequisite is a set of problems that better tools might help with.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== THE PROGRAM IN DETAIL ============== -->
+    <section class="band detail" data-screen-label="Program Detail">
+      <div class="wrap">
+        <p class="eyebrow reveal">The Program in Detail</p>
+        <h2 class="detail__head display-type reveal">A structured day, shaped by the group in the room.</h2>
+        <div class="phases">
+          <article class="phase phase--book reveal">
+            <div class="phase__rail"><span class="phase__kicker">Before the day</span></div>
+            <div>
+              <h3 class="phase__title">A short pre-work survey</h3>
+              <p class="phase__body">Participants complete a short pre-work survey. It surfaces the areas where the group's time is best spent, so the afternoon's discussion is specific to their context rather than generic.</p>
+            </div>
+          </article>
+          <article class="phase reveal">
+            <div class="phase__rail"><span class="phase__num n1">01</span><span class="phase__kicker">Morning</span></div>
+            <div>
+              <h3 class="phase__title">Reading the landscape accurately</h3>
+              <p class="phase__body">The day opens with the foundation most participants are missing: a clear, honest picture of how AI actually works, where it currently is and is not reliable, and how to evaluate the claims that accompany every product, pitch, and news cycle. The goal is calibration, not reassurance or alarm. Participants leave this session with a working mental model and a skepticism that is precise rather than reflexive.</p>
+            </div>
+          </article>
+          <article class="phase reveal">
+            <div class="phase__rail"><span class="phase__num">02</span><span class="phase__kicker">Midday</span></div>
+            <div>
+              <h3 class="phase__title">AI as a working tool</h3>
+              <p class="phase__body">The majority of the day is hands-on. Participants work directly with AI, using real scenarios rather than hypothetical ones. The exercises cover the areas of highest leverage for senior leaders: thinking and decision support, written communications, synthesis of complex information. The session is designed to build the prompting instinct, the practical habit that determines whether AI becomes a genuine part of how someone works, or stays a novelty.</p>
+            </div>
+          </article>
+          <article class="phase reveal">
+            <div class="phase__rail"><span class="phase__num n3">03</span><span class="phase__kicker">Afternoon</span></div>
+            <div>
+              <h3 class="phase__title">Organizational judgment</h3>
+              <p class="phase__body">The final session uses the day's direct experience as a foundation. Participants work through a framework for evaluating any AI initiative: identifying where in the business AI is most worth pursuing, how to sequence decisions, and how to hold a vendor conversation with firsthand knowledge of the technology rather than secondhand summaries. The discussion is shaped by the pre-work survey and by what surfaced during the day, so it lands in the actual context of the group.</p>
+            </div>
+          </article>
+          <article class="phase phase--book reveal">
+            <div class="phase__rail"><span class="phase__kicker">After the day</span></div>
+            <div>
+              <h3 class="phase__title">Optional follow-up</h3>
+              <p class="phase__body">Optional follow-up consulting is available for questions that arise as participants begin applying what they have learned to real decisions.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== WHAT A DAY LOOKS LIKE ============== -->
+    <section class="band band--pale day" data-screen-label="A Day">
+      <div class="wrap">
+        <div class="day__grid">
+          <div class="reveal">
+            <p class="eyebrow">What a Day Looks Like</p>
+            <h2 class="day__head display-type">Small by design, so the room has shared stakes.</h2>
+            <div class="day__body">
+              <p>Four to eight people from the same organization means the room has shared context, shared language, and shared stakes. The exercises are worked through together. The afternoon's discussion is specific to the business in the room, not a generalized framework applied from the outside.</p>
+              <p>The facilitator is Sami Ammous, who also designed the program. There is no separation between what is taught and who teaches it.</p>
+              <p>By mid-afternoon, most groups have stopped thinking about whether AI is relevant to their work and started thinking about where to apply it first.</p>
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="photo-slot ratio-portrait">
+              <span class="ps-label">In-room workshop photography</span>
+              <span class="ps-note">Candid over staged. To be added post-launch.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== FORMAT AND LOGISTICS ============== -->
+    <section class="band specs" data-screen-label="Logistics">
+      <div class="wrap">
+        <p class="eyebrow reveal">Format and Logistics</p>
+        <h2 class="specs__head display-type reveal">The practical details.</h2>
+        <div class="specs__list reveal">
+          <div class="spec"><div class="spec__k">Format</div><div class="spec__v">Full day, in person</div></div>
+          <div class="spec"><div class="spec__k">Group size</div><div class="spec__v">4 to 8 participants</div></div>
+          <div class="spec"><div class="spec__k">Level</div><div class="spec__v">Senior leaders</div></div>
+          <div class="spec"><div class="spec__k">Location</div><div class="spec__v">At a venue of the client's choosing, across Asia-Pacific</div></div>
+          <div class="spec"><div class="spec__k">Technical requirements</div><div class="spec__v">None. Everyday computer use is sufficient.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== CTA ============== -->
+    <section class="band cta-band" data-screen-label="Program CTA">
+      <div class="cta-band__watermark"><img src="assets/logo-watermark.png" alt=""></div>
+      <div class="wrap">
+        <p class="eyebrow reveal">Start with a conversation</p>
+        <h2 class="cta-band__head display-type reveal">The right group. The right day. <em>Let's find out.</em></h2>
+        <p class="cta-band__body reveal">A short call to understand the group's context and confirm the fit, then everything else follows from there.</p>
+        <div class="cta-band__actions reveal">
+          <a class="btn btn-inverse" href="contact.html">Start a conversation <span class="arr">→</span></a>
+          <a class="cta-band__email" href="mailto:hello@sansnoise.com">hello@sansnoise.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-left">Sans Noise</div>
+      <div class="foot-center">
+        <a href="index.html">Home</a>
+        <a href="program.html">The Program</a>
+        <!-- <a href="perspectives.html">Perspectives</a> -->
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="foot-right">
+        <a href="mailto:hello@sansnoise.com">hello@sansnoise.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        els.forEach(function (el) { el.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < (window.innerHeight || 0) * 0.95) { el.classList.add('in'); }
+        else { io.observe(el); }
+      });
+      setTimeout(function () { els.forEach(function (el) { el.classList.add('in'); }); }, 2500);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Perspectives on AI for Senior Leaders | Sans Noise</title>
+<meta name="description" content="Observations on AI from the field — what's actually happening, what's overstated, and what senior leaders should be paying attention to.">
+<link rel="stylesheet" href="styles/sn-tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<style>
+  /* ============================================================
+     SANS NOISE · PERSPECTIVES (index)
+     ============================================================ */
+  .page-hero__emptystate { margin: 22px 0 0; font-size: var(--fs-body); color: var(--fg-2); }
+
+  .feed { padding-bottom: var(--sec-pad-y); }
+  .feed__list { display: grid; gap: 0; }
+  .entry {
+    display: grid; grid-template-columns: 160px 1fr; gap: 44px;
+    padding: 48px 0; border-top: 1px solid var(--border-hair); align-items: start;
+  }
+  .entry:last-child { border-bottom: 1px solid var(--border-hair); }
+  @media (max-width: 760px) { .entry { grid-template-columns: 1fr; gap: 16px; padding: 38px 0; } }
+  .entry__date { font-family: var(--font-sans); font-size: var(--fs-eyebrow); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--fg-2); padding-top: 8px; }
+  .entry__headline { margin: 0 0 18px; font-size: clamp(26px, 3vw, 38px); line-height: 1.14; }
+  .entry__headline a { color: var(--fg-1); text-decoration: none; transition: color var(--dur-base) var(--ease-soft); }
+  .entry__headline a:hover { color: var(--sn-midblue); }
+  .entry__tweet { margin: 0 0 24px; font-size: var(--fs-body-lg); line-height: var(--lh-relaxed); color: var(--fg-body); max-width: 60ch; }
+</style>
+</head>
+<body>
+
+  <!-- ============== HEADER ============== -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Sans Noise home">
+        <img src="assets/logo-horizontal.png" alt="Sans Noise">
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="program.html">The Program</a>
+        <a href="perspectives.html" aria-current="page">Perspectives</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============== HERO ============== -->
+    <section class="page-hero" data-screen-label="Perspectives Hero">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="eyebrow">Perspectives</p>
+          <h1 class="page-hero__title display-type">Perspectives</h1>
+          <p class="page-hero__sub">Observations on AI from the field: what is actually happening, what is being overstated, and what senior leaders should be paying attention to.</p>
+          <p class="page-hero__emptystate">New pieces published regularly. The first few are below.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== FEED ============== -->
+    <section class="feed" data-screen-label="Feed">
+      <div class="wrap">
+        <div class="feed__list">
+          <article class="entry reveal">
+            <div class="entry__date">June 2026</div>
+            <div>
+              <h2 class="entry__headline display-type"><a href="the-most-dangerous-ai-claim.html">The most dangerous AI claim is the one that is mostly true</a></h2>
+              <p class="entry__tweet">AI vendors don't lie to you. They show you the best case and let you assume it's the typical case. That's harder to defend against.</p>
+              <a class="link-ghost" href="the-most-dangerous-ai-claim.html">Read more <span class="arr">→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-left">Sans Noise</div>
+      <div class="foot-center">
+        <a href="index.html">Home</a>
+        <a href="program.html">The Program</a>
+        <a href="perspectives.html">Perspectives</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="foot-right">
+        <a href="mailto:hello@sansnoise.com">hello@sansnoise.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        els.forEach(function (el) { el.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < (window.innerHeight || 0) * 0.95) { el.classList.add('in'); }
+        else { io.observe(el); }
+      });
+      setTimeout(function () { els.forEach(function (el) { el.classList.add('in'); }); }, 2500);
+    })();
+  </script>
+</body>
+</html>

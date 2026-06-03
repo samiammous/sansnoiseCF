@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Workshop for Senior Leaders | Sans Noise</title>
+<meta name="description" content="The Executive Brief is a full-day AI workshop for senior leaders. Cut through the hype, build working confidence, and make better organizational decisions about AI.">
+<link rel="stylesheet" href="styles/sn-tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<style>
+  /* ============================================================
+     SANS NOISE · HOME (page-specific layout)
+     ============================================================ */
+
+  /* ---------- HERO ---------- */
+  .hero { padding: clamp(80px, 13vh, 156px) 0 var(--sec-pad-y); }
+  .hero .eyebrow { margin-bottom: 30px; }
+  .hero__headline {
+    margin: 0 0 28px;
+    font-size: clamp(33px, 4.3vw, 55px);
+    line-height: 1.1;
+    color: var(--fg-1);
+    max-width: none;
+    text-wrap: pretty;
+  }
+  .hero__sub {
+    margin: 0 0 38px;
+    font-size: clamp(17px, 1.4vw, 20px);
+    line-height: var(--lh-relaxed);
+    color: var(--fg-body);
+    max-width: 66ch;
+  }
+  .hero__cta { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+
+  /* ---------- THE SITUATION ---------- */
+  .situation .eyebrow { margin-bottom: 22px; }
+  .situation__grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: start; }
+  @media (max-width: 900px) { .situation__grid { grid-template-columns: 1fr; gap: 44px; } }
+  .situation__head {
+    margin: 0; font-size: clamp(26px, 2.8vw, 38px); line-height: 1.18;
+    color: var(--fg-1); max-width: 24ch;
+  }
+  .situation__body {
+    margin: 36px 0 0; max-width: 56ch;
+    font-size: var(--fs-body-lg); line-height: var(--lh-relaxed); color: var(--fg-body);
+  }
+  .situation__aside { position: sticky; top: 112px; }
+  @media (max-width: 900px) { .situation__aside { position: static; } }
+
+  /* signal-vs-noise graphic */
+  .sig { background: var(--sn-white); border: 1px solid var(--border-hair); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); padding: 32px 32px 34px; }
+  .sig__label { font-family: var(--font-sans); font-size: var(--fs-eyebrow); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--fg-2); margin: 0; }
+  .sig__noise { display: flex; flex-direction: column; gap: 13px; margin: 22px 0 2px; }
+  .sig__noise .ln { height: 10px; border-radius: 999px; background: rgba(31,56,100,0.10); }
+  .sig__noise .tx { font-family: var(--font-sans); font-size: 14px; line-height: 1.45; color: rgba(74,74,74,0.42); }
+  .sig__divider { display: flex; align-items: center; gap: 14px; margin: 26px 0 24px; }
+  .sig__divider .rule { height: 1px; background: var(--border-soft); flex: 1; }
+  .sig__divider .cap { font-family: var(--font-display); font-style: italic; font-size: 16px; color: var(--fg-2); letter-spacing: 0.01em; }
+  .sig__signal { display: flex; gap: 16px; align-items: stretch; }
+  .sig__signal .tick { width: 4px; min-height: 46px; background: var(--sn-midblue); border-radius: 999px; flex: none; }
+  .sig__signal .q { font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: clamp(22px, 2.3vw, 27px); line-height: 1.2; color: var(--fg-1); }
+  .sig__signal .qs { display: block; margin-top: 9px; font-family: var(--font-sans); font-style: normal; font-size: var(--fs-meta); color: var(--fg-2); letter-spacing: 0.01em; line-height: 1.45; }
+
+  /* ---------- THE BACKGROUND ---------- */
+  .about .wrap { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 64px; align-items: start; }
+  @media (max-width: 880px) { .about .wrap { grid-template-columns: 1fr; gap: 40px; } }
+  .about__photo {
+    border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4 / 5;
+    box-shadow: var(--shadow-md);
+  }
+  .about__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .about__caption {
+    margin: 16px 0 0; font-family: var(--font-sans); font-size: var(--fs-meta);
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-2);
+  }
+  .about .eyebrow { margin-bottom: 20px; }
+  .about__head { margin: 0 0 26px; font-size: clamp(28px, 3vw, 44px); line-height: 1.1; max-width: 18ch; }
+  .about__body p { margin: 0 0 18px; font-size: var(--fs-body-lg); line-height: var(--lh-relaxed); color: var(--fg-body); max-width: 58ch; }
+  .about__body p:last-child { margin-bottom: 0; }
+
+  /* ---------- THE OFFER ---------- */
+  .does .eyebrow { margin-bottom: 22px; }
+  .does__head { margin: 0 0 44px; font-size: clamp(26px, 2.8vw, 40px); line-height: 1.16; max-width: none; }
+  .does__grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: center; }
+  @media (max-width: 880px) { .does__grid { grid-template-columns: 1fr; gap: 44px; } }
+  .does__body p { margin: 0 0 20px; font-size: var(--fs-body-lg); line-height: var(--lh-relaxed); color: var(--fg-body); }
+  .does__body p:last-child { margin-bottom: 0; }
+  .does__body .not { color: var(--fg-2); }
+
+  /* ---------- THE PROGRAM ---------- */
+  .program .eyebrow { margin-bottom: 22px; }
+  .program__intro { margin: 0 0 16px; font-size: clamp(28px, 3.2vw, 46px); line-height: 1.12; max-width: none; }
+  .program__lead { margin: 0 0 52px; font-size: var(--fs-body-lg); line-height: var(--lh-relaxed); color: var(--fg-body); max-width: 52ch; }
+  .parts { display: grid; gap: 0; }
+  .part {
+    display: grid; grid-template-columns: 120px 1fr; gap: 40px;
+    padding: 38px 0; border-top: 1px solid var(--border-hair); align-items: start;
+  }
+  .part:last-child { border-bottom: 1px solid var(--border-hair); }
+  @media (max-width: 720px) { .part { grid-template-columns: 1fr; gap: 14px; padding: 30px 0; } }
+  .part__num {
+    font-family: var(--font-display); font-style: italic; font-weight: 500;
+    font-size: clamp(44px, 5vw, 68px); line-height: 0.9; color: var(--sn-midblue);
+    letter-spacing: -0.01em;
+  }
+  .part:nth-child(1) .part__num { color: var(--sn-violet); }
+  .part:nth-child(3) .part__num { color: var(--sn-forest); }
+  .part__title { margin: 0 0 14px; font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-h5); line-height: 1.2; color: var(--fg-1); }
+  .part__desc { margin: 0; font-size: var(--fs-body-lg); line-height: var(--lh-relaxed); color: var(--fg-body); max-width: 60ch; }
+  .program__cta { margin-top: 44px; }
+
+  /* ---------- THE OUTCOME ---------- */
+  .leave .eyebrow { margin-bottom: 22px; }
+  .leave__head { margin: 0 0 48px; font-size: clamp(28px, 3.2vw, 44px); line-height: 1.12; max-width: none; }
+  .leave__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  @media (max-width: 720px) { .leave__cols { grid-template-columns: 1fr; } }
+  .leave__col { padding: 34px 34px 38px; border-radius: var(--radius-lg); border: 1px solid var(--border-hair); box-shadow: var(--shadow-sm); }
+  .leave__col.personal { background: var(--sn-violet-tint); border-color: rgba(124,58,237,0.16); }
+  .leave__col.org { background: var(--sn-forest-tint); border-color: rgba(5,150,105,0.16); }
+  .leave__col .tag {
+    display: inline-flex; align-items: center; gap: 9px; margin-bottom: 18px;
+    font-family: var(--font-sans); font-size: var(--fs-eyebrow); font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-eyebrow); text-transform: uppercase;
+  }
+  .leave__col.personal .tag { color: var(--sn-violet); }
+  .leave__col.org .tag { color: var(--sn-forest); }
+  .leave__col .tag .dot { width: 8px; height: 8px; border-radius: 999px; }
+  .leave__col.personal .tag .dot { background: var(--sn-violet); }
+  .leave__col.org .tag .dot { background: var(--sn-forest); }
+  .leave__col p { margin: 0; font-size: var(--fs-body-lg); line-height: var(--lh-relaxed); color: var(--fg-body); }
+
+  /* ---------- FONT PAIRING TWEAK ---------- */
+  [data-fonts="modern"] {
+    --font-head: var(--font-sans);
+    --head-style: normal;
+    --head-weight: 600;
+    --head-track: -0.02em;
+  }
+  [data-fonts="modern"] em.accent,
+  [data-fonts="modern"] .part__num,
+  [data-fonts="modern"] .pullquote,
+  [data-fonts="modern"] .site-footer .foot-left,
+  [data-fonts="modern"] .cta-band__head em {
+    font-family: var(--font-sans); font-style: normal; font-weight: 600;
+  }
+  [data-fonts="modern"] .pullquote { font-weight: 500; }
+</style>
+</head>
+<body>
+
+  <!-- ============== HEADER ============== -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Sans Noise home">
+        <img src="assets/logo-horizontal.png" alt="Sans Noise">
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="program.html">The Program</a>
+        <!-- Perspectives: hidden at launch. Uncomment when content is ready.
+        <a href="perspectives.html">Perspectives</a>
+        -->
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============== HERO ============== -->
+    <section class="hero" id="top" data-screen-label="Hero">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="eyebrow">The meeting you didn't ask for</p>
+          <h1 class="hero__headline display-type">Everyone has an <span class="hl-violet">opinion</span> on what you should do with AI.</h1>
+          <p class="hero__sub">Most senior leaders find themselves in the same position: pressure from above, noise from vendors, and not enough time to figure out what's actually worth doing.</p>
+          <div class="hero__cta">
+            <a class="btn btn-primary" href="program.html">Learn about the program <span class="arr">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== THE SITUATION ============== -->
+    <section class="band band--pale situation" id="situation" data-screen-label="The Situation">
+      <div class="wrap">
+        <div class="situation__grid">
+          <div>
+            <p class="eyebrow reveal">The Situation</p>
+            <h2 class="situation__head display-type reveal">The information exists. The <em class="accent">right</em> information, contextualized without an agenda, is harder to find.</h2>
+            <p class="situation__body reveal">The vendor pitches conflate what's possible today with what might be possible in three years. The press covers the most dramatic version of every development. The consultants sell urgency. And somewhere in the middle of all of it, a legitimate question keeps not getting answered:</p>
+            <blockquote class="pullquote reveal">As a senior leader in this organization, where do we actually start?</blockquote>
+            <p class="situation__body reveal" style="margin-top:0;">That question has a practical answer. It is not complicated. It just requires someone to give it to you straight.</p>
+          </div>
+          <aside class="situation__aside reveal">
+            <div class="sig">
+              <p class="sig__label">Incoming, all at once</p>
+              <div class="sig__noise">
+                <span class="tx">Vendor pitches: possible today, or three years out?</span>
+                <span class="ln" style="width:92%"></span>
+                <span class="tx">The press, at maximum volume</span>
+                <span class="ln" style="width:74%"></span>
+                <span class="ln" style="width:86%"></span>
+                <span class="tx">Consultants, selling urgency</span>
+                <span class="ln" style="width:63%"></span>
+              </div>
+              <div class="sig__divider"><span class="rule"></span><span class="cap"><span style="color:var(--sn-violet)">sans</span> <span style="color:var(--sn-forest)">noise</span></span><span class="rule"></span></div>
+              <div class="sig__signal">
+                <span class="tick"></span>
+                <span class="q">Where do we start?<span class="qs">One question, answered without an agenda.</span></span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== THE BACKGROUND ============== -->
+    <section class="band about" id="background" data-screen-label="The Background">
+      <div class="wrap">
+        <div>
+          <div class="about__photo reveal">
+            <img src="assets/founder-sami-warm.png" alt="Sami Ammous, founder of Sans Noise">
+          </div>
+          <p class="about__caption reveal">Sami Ammous · Founder · Sans Noise</p>
+        </div>
+        <div class="reveal">
+          <p class="eyebrow">The Background</p>
+          <h2 class="about__head display-type">Built by someone who ran the <span class="hl-forest">meetings</span>, not the <span class="hl-violet">models</span>.</h2>
+          <div class="about__body">
+            <p>Sans Noise was founded by Sami Ammous, a business leader with two decades of experience running sales organizations, coaching executives, and advising companies on growth across the Asia-Pacific region.</p>
+            <p>In that work, one pattern repeated: every conversation eventually found its way back to AI. The concerns were real. The information available was not particularly useful. Sami built Sans Noise to close that gap, with a structured day that gives senior leaders direct experience of the tools, an honest picture of the landscape, and a way of thinking about organizational decisions that they can use the following week.</p>
+            <p>Sami writes regularly on <a class="inline-link" href="https://www.linkedin.com/in/sami-ammous/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== THE OFFER ============== -->
+    <section class="band does" id="offer" data-screen-label="The Offer">
+      <div class="wrap">
+        <p class="eyebrow reveal">The Offer</p>
+        <h2 class="does__head display-type reveal">Built for leaders who <span class="hl-forest">make decisions</span>, not those who <span class="hl-violet">study them</span>.</h2>
+        <div class="does__grid">
+          <div class="does__body reveal">
+            <p>The Executive Brief is the only program Sans Noise offers, built around one belief: senior leaders need more detail than the headlines but less than the code.</p>
+            <p>It is a full-day, in-person workshop for small groups of senior leaders, four to eight participants from the same organization. Participants work with AI directly, using real scenarios rather than case studies. The facilitator is also the program designer. And because the group comes from the same organization, the afternoon's discussion about where AI is worth pursuing in the business is grounded in shared context, not hypotheticals.</p>
+            <p class="not">This is not a keynote, a lunch-and-learn, or a vendor demonstration. It is a working session with a defined output: leaders who know what to do next, and why.</p>
+          </div>
+          <div class="reveal">
+            <div class="photo-slot ratio-wide">
+              <span class="ps-label">Workshop, in the room</span>
+              <span class="ps-note">Candid in-session photography. To be added post-launch.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== THE PROGRAM ============== -->
+    <section class="band band--pale program" id="program" data-screen-label="The Program">
+      <div class="wrap">
+        <p class="eyebrow reveal">The Program</p>
+        <h2 class="program__intro display-type reveal">The Executive Brief runs in <em class="accent">three parts</em>.</h2>
+        <div class="parts">
+          <article class="part reveal">
+            <div class="part__num">01</div>
+            <div>
+              <h3 class="part__title">Reading the landscape accurately</h3>
+              <p class="part__desc">An honest, non-technical account of where AI actually is today: what it can and cannot do, how the products most participants will encounter actually work, and how to evaluate the claims that land on your desk. Participants leave with a permanent filter, not a summary they will have forgotten by Thursday.</p>
+            </div>
+          </article>
+          <article class="part reveal">
+            <div class="part__num">02</div>
+            <div>
+              <h3 class="part__title">AI as a working tool</h3>
+              <p class="part__desc">Hands-on exercises built around real work: thinking and decision support, communications, analysis and synthesis. The goal is not awareness of what AI can do. It is the prompting instinct that turns the tool from a novelty into a daily habit.</p>
+            </div>
+          </article>
+          <article class="part reveal">
+            <div class="part__num">03</div>
+            <div>
+              <h3 class="part__title">Organizational judgment</h3>
+              <p class="part__desc">A practical framework for any AI decision: how to identify where AI is actually worth pursuing, how to sequence initiatives, and how to evaluate a vendor claim or a budget proposal without outsourcing the judgment to the vendor. The foundation for every enterprise AI conversation that follows.</p>
+            </div>
+          </article>
+        </div>
+        <div class="program__cta reveal">
+          <a class="link-ghost" href="program.html">See the full program <span class="arr">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== THE OUTCOME ============== -->
+    <section class="band leave" id="outcome" data-screen-label="The Outcome">
+      <div class="wrap">
+        <p class="eyebrow reveal">The Outcome</p>
+        <h2 class="leave__head display-type reveal">Within a few weeks, participants are consistently doing two things differently.</h2>
+        <div class="leave__cols">
+          <div class="leave__col personal reveal">
+            <span class="tag"><span class="dot"></span>In their own work</span>
+            <p>They use AI regularly for thinking support, drafting, and analysis. They apply sharper judgment to AI news and vendor claims. They ask better questions when facing novel problems.</p>
+          </div>
+          <div class="leave__col org reveal">
+            <span class="tag"><span class="dot"></span>In their organizations</span>
+            <p>They have identified the two or three areas most worth serious attention. They have a framework for evaluating any initiative or tool that lands on their desk. And they can lead that assessment themselves, without handing the judgment to a consultant.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== CTA ============== -->
+    <section class="band cta-band" id="contact-cta" data-screen-label="Contact CTA">
+      <div class="cta-band__watermark"><img src="assets/logo-watermark.png" alt=""></div>
+      <div class="wrap">
+        <p class="eyebrow reveal">The next step</p>
+        <h2 class="cta-band__head display-type reveal">Start with a <em>conversation</em>.</h2>
+        <p class="cta-band__body reveal">The program runs for small groups by arrangement. Every engagement starts with a short conversation to confirm it is the right fit.</p>
+        <div class="cta-band__actions reveal">
+          <a class="btn btn-inverse" href="contact.html">Start a conversation <span class="arr">→</span></a>
+          <a class="cta-band__email" href="mailto:hello@sansnoise.com">hello@sansnoise.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-left">Sans Noise</div>
+      <div class="foot-center">
+        <a href="index.html">Home</a>
+        <a href="program.html">The Program</a>
+        <!-- <a href="perspectives.html">Perspectives</a> -->
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="foot-right">
+        <a href="mailto:hello@sansnoise.com">hello@sansnoise.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============== TWEAKS ============== -->
+  <div id="tweaks-root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="app.jsx"></script>
+
+  <script>
+    // Reveal-on-scroll, restrained editorial fade.
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        els.forEach(function (el) { el.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < (window.innerHeight || 0) * 0.95) { el.classList.add('in'); }
+        else { io.observe(el); }
+      });
+      setTimeout(function () { els.forEach(function (el) { el.classList.add('in'); }); }, 2500);
+    })();
+  </script>
+</body>
+</html>

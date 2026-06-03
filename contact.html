@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get in Touch | Sans Noise</title>
+<meta name="description" content="Every engagement starts with a conversation. Reach out to discuss the Executive Brief for your leadership team.">
+<link rel="stylesheet" href="styles/sn-tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<style>
+  /* ============================================================
+     SANS NOISE · CONTACT
+     ============================================================ */
+  .contact { padding: clamp(64px, 9vh, 116px) 0 var(--sec-pad-y); }
+  .contact__grid { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 72px; align-items: start; }
+  @media (max-width: 880px) { .contact__grid { grid-template-columns: 1fr; gap: 48px; } }
+
+  .contact__intro .eyebrow { margin-bottom: 24px; }
+  .contact__head { margin: 0 0 28px; font-size: clamp(32px, 4vw, 52px); line-height: 1.08; color: var(--fg-1); max-width: 16ch; }
+  .contact__direct { margin: 36px 0 0; font-size: var(--fs-body-lg); line-height: var(--lh-relaxed); color: var(--fg-body); }
+  .contact__direct a { color: var(--sn-midblue); text-decoration: none; border-bottom: 1px solid rgba(46,93,158,0.35); }
+  .contact__direct a:hover { color: var(--sn-navy); border-bottom-color: var(--sn-navy); }
+
+  /* ---------- FORM ---------- */
+  .form-card {
+    background: var(--sn-white); border: 1px solid var(--border-hair);
+    border-radius: var(--radius-xl); box-shadow: var(--shadow-md);
+    padding: 40px 40px 36px;
+  }
+  @media (max-width: 560px) { .form-card { padding: 28px 24px 28px; } }
+  .field { display: flex; flex-direction: column; gap: 9px; margin-bottom: 22px; }
+  .field label { font-family: var(--font-sans); font-size: var(--fs-eyebrow); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--fg-2); }
+  .field input, .field textarea {
+    font-family: var(--font-sans); font-size: var(--fs-body); color: var(--fg-1);
+    background: var(--sn-canvas); border: 1px solid var(--border-soft); border-radius: var(--radius-md);
+    padding: 13px 15px; width: 100%; line-height: 1.5;
+    transition: border-color var(--dur-base) var(--ease-soft), box-shadow var(--dur-base) var(--ease-soft);
+  }
+  .field input::placeholder, .field textarea::placeholder { color: var(--fg-3); }
+  .field input:focus, .field textarea:focus { outline: none; border-color: var(--sn-midblue); box-shadow: var(--ring-accent); }
+  .field textarea { resize: vertical; min-height: 132px; }
+  .form-actions { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; margin-top: 30px; }
+  .form-note { margin: 22px 0 0; font-size: var(--fs-meta); color: var(--fg-2); }
+  .form-status { margin: 18px 0 0; font-size: var(--fs-body-sm); color: var(--sn-midblue); min-height: 1.2em; }
+  .form-card button { font-family: var(--font-sans); }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+  <!-- ============== HEADER ============== -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Sans Noise home">
+        <img src="assets/logo-horizontal.png" alt="Sans Noise">
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="program.html">The Program</a>
+        <!-- <a href="perspectives.html">Perspectives</a> -->
+        <a href="contact.html" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="contact" data-screen-label="Contact">
+      <div class="wrap">
+        <div class="contact__grid">
+          <div class="contact__intro reveal">
+            <p class="eyebrow">Contact</p>
+            <h1 class="contact__head display-type">Every engagement starts with a conversation.</h1>
+            <p class="contact__direct">Or reach out directly:<br><a href="mailto:hello@sansnoise.com">hello@sansnoise.com</a></p>
+          </div>
+
+          <div class="reveal">
+            <form class="form-card" id="contact-form" novalidate>
+              <div class="field">
+                <label for="cf-name">Name</label>
+                <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Your name">
+              </div>
+              <div class="field">
+                <label for="cf-org">Organization</label>
+                <input id="cf-org" name="organization" type="text" autocomplete="organization" placeholder="Where you lead">
+              </div>
+              <div class="field">
+                <label for="cf-email">Email</label>
+                <input id="cf-email" name="email" type="email" autocomplete="email" placeholder="you@company.com">
+              </div>
+              <div class="field">
+                <label for="cf-message">Message</label>
+                <textarea id="cf-message" name="message" placeholder="A line or two on your team and what prompted you to reach out."></textarea>
+              </div>
+              <div class="hp" aria-hidden="true">
+                <label for="cf-company">Company</label>
+                <input id="cf-company" name="company" type="text" tabindex="-1" autocomplete="off">
+              </div>
+              <div class="form-actions">
+                <button class="btn btn-primary" type="submit">Send <span class="arr">→</span></button>
+                <p class="form-note" style="margin:0;">We respond within two business days.</p>
+              </div>
+              <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-left">Sans Noise</div>
+      <div class="foot-center">
+        <a href="index.html">Home</a>
+        <a href="program.html">The Program</a>
+        <!-- <a href="perspectives.html">Perspectives</a> -->
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="foot-right">
+        <a href="mailto:hello@sansnoise.com">hello@sansnoise.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Posts the form to the Cloudflare Pages Function at /api/contact, which
+    // emails the details via Resend. No visitor mail client involved.
+    // (In plain file preview the endpoint 404s; it works once deployed.)
+    (function () {
+      var form = document.getElementById('contact-form');
+      var status = document.getElementById('cf-status');
+      var btn = form ? form.querySelector('button[type="submit"]') : null;
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = (document.getElementById('cf-name').value || '').trim();
+        var org = (document.getElementById('cf-org').value || '').trim();
+        var email = (document.getElementById('cf-email').value || '').trim();
+        var message = (document.getElementById('cf-message').value || '').trim();
+        var company = (document.getElementById('cf-company').value || '').trim();
+        if (!name || !email || !message) {
+          status.style.color = '';
+          status.textContent = 'Please add your name, email, and a short message.';
+          return;
+        }
+        if (btn) { btn.disabled = true; btn.style.opacity = '0.6'; btn.style.cursor = 'default'; }
+        status.style.color = '';
+        status.textContent = 'Sending\u2026';
+        fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: name, organization: org, email: email, message: message, company: company })
+        }).then(function (r) {
+          return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok, d: d }; });
+        }).then(function (res) {
+          if (res.ok && res.d && res.d.ok) {
+            status.textContent = 'Thank you. We respond within two business days.';
+            form.reset();
+          } else {
+            status.textContent = (res.d && res.d.error) || 'Something went wrong. Please email hello@sansnoise.com.';
+          }
+        }).catch(function () {
+          status.textContent = 'Could not reach the server. Please email hello@sansnoise.com.';
+        }).then(function () {
+          if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.style.cursor = ''; }
+        });
+      });
+    })();
+
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      els.forEach(function (el) { el.classList.add('in'); });
+    })();
+  </script>
+</body>
+</html>

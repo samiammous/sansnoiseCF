@@ -1,0 +1,270 @@
+/* ============================================================
+   SANS NOISE · COLORS & TYPE FOUNDATION
+   "Clarity in a world of constant noise."
+   ============================================================ */
+
+/* ---------- FONTS ---------- */
+@font-face {
+  font-family: "Cormorant";
+  src: url("../fonts/Cormorant-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant";
+  src: url("../fonts/Cormorant-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 300 700;
+  font-style: italic;
+  font-display: swap;
+  font-synthesis: style; /* TTF is upright; logotype italic is synthesized */
+}
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("../fonts/InstrumentSans-VariableFont_wdth_wght.ttf") format("truetype-variations");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
+   COLOR TOKENS
+   Three brand colors (Navy / Violet / Forest), matching tints,
+   and a warm off-white neutral ramp. The Cream/Canvas backdrop
+   is non-negotiable — pure #FFFFFF is reserved for cards and
+   surfaces that need to lift off the page.
+   ============================================================ */
+:root {
+  /* --- Primary brand --- */
+  --sn-navy:   #1A2C52;  /* Ink. Backgrounds for hero/title/module-cover slides. */
+  --sn-violet: #7C3AED;  /* "sans" — accent, links, emphasis on light bgs. */
+  --sn-forest: #059669;  /* "noise" — accent, success, positive deltas. */
+
+  /* Slightly darker navy steps used in the deck for layering */
+  --sn-navy-700: #1E3668;
+  --sn-navy-600: #2A4480;
+
+  /* --- Tints (10–15% wash of each primary) --- */
+  --sn-violet-tint: #EDE9FB;
+  --sn-forest-tint: #D5F5EC;
+  --sn-navy-tint:   #E8EBF2;
+
+  /* --- Neutrals (warm, paper-leaning) --- */
+  --sn-canvas:  #FAFAF7;  /* Page background. Warm off-white. */
+  --sn-surface: #F2F2EE;  /* Subtle elevated surface on canvas. */
+  --sn-slate:   #6B7280;  /* Secondary text, meta, captions. */
+  --sn-ink:     #1A2C52;  /* Primary text = Navy. */
+  --sn-white:   #FFFFFF;  /* Cards, data tables, lift-off surfaces. */
+
+  /* --- Semantic foreground / background aliases --- */
+  --fg-1: var(--sn-ink);        /* Headlines, primary body */
+  --fg-2: var(--sn-slate);      /* Secondary body, meta */
+  --fg-3: #9CA3AF;              /* Tertiary, deemphasized */
+  --fg-inverse: var(--sn-canvas); /* Text on navy backgrounds */
+  --fg-violet:  var(--sn-violet);
+  --fg-forest:  var(--sn-forest);
+
+  --bg-page:    var(--sn-canvas);
+  --bg-card:    var(--sn-white);
+  --bg-soft:    var(--sn-surface);
+  --bg-inverse: var(--sn-navy);
+  --bg-violet-soft: var(--sn-violet-tint);
+  --bg-forest-soft: var(--sn-forest-tint);
+  --bg-navy-soft:   var(--sn-navy-tint);
+
+  /* --- Borders / dividers --- */
+  --border-hair:   rgba(26, 44, 82, 0.10);  /* navy @ 10% */
+  --border-soft:   rgba(26, 44, 82, 0.18);
+  --border-strong: rgba(26, 44, 82, 0.32);
+
+  /* --- Semantic state --- */
+  --positive: var(--sn-forest);
+  --warning:  #B45309;   /* amber-700, warm to match palette */
+  --critical: #B91C1C;   /* red-700 */
+
+  /* ============================================================
+     TYPE TOKENS
+     Two families. No third. Discipline > decoration.
+     - Cormorant (serif): logo, display headlines, pull quotes.
+       Use sparingly — almost always in italic on the brand mark,
+       upright for editorial display.
+     - Instrument Sans: everything else. Body, UI, eyebrows,
+       data labels, captions.
+     ============================================================ */
+  --font-display: "Cormorant", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans:    "Instrument Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-mono:    ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+
+  /* Scale — built around a 1920x1080 slide canvas; clamp on web */
+  --fs-eyebrow:   0.75rem;   /* 12 — UPPERCASE label, tracked */
+  --fs-meta:      0.8125rem; /* 13 — captions, footnotes */
+  --fs-body-sm:   0.9375rem; /* 15 */
+  --fs-body:      1rem;      /* 16 */
+  --fs-body-lg:   1.125rem;  /* 18 — lead paragraphs */
+  --fs-h6:        1.25rem;   /* 20 */
+  --fs-h5:        1.5rem;    /* 24 */
+  --fs-h4:        1.875rem;  /* 30 */
+  --fs-h3:        2.5rem;    /* 40 */
+  --fs-h2:        3.25rem;   /* 52 */
+  --fs-h1:        4.5rem;    /* 72 */
+  --fs-display:   6rem;      /* 96 — slide hero */
+
+  --lh-tight:   1.05;
+  --lh-snug:    1.2;
+  --lh-normal:  1.45;
+  --lh-relaxed: 1.6;
+
+  --tracking-eyebrow: 0.14em;
+  --tracking-display: -0.015em;
+  --tracking-body:    0;
+
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* ============================================================
+     SPACING · RADII · ELEVATION
+     ============================================================ */
+  --space-0:  0;
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+
+  --shadow-xs: 0 1px 2px rgba(26, 44, 82, 0.06);
+  --shadow-sm: 0 2px 6px rgba(26, 44, 82, 0.06), 0 1px 2px rgba(26, 44, 82, 0.04);
+  --shadow-md: 0 8px 24px rgba(26, 44, 82, 0.08), 0 2px 4px rgba(26, 44, 82, 0.04);
+  --shadow-lg: 0 16px 36px rgba(26, 44, 82, 0.10), 0 3px 8px rgba(26, 44, 82, 0.05);
+
+  --ring-violet: 0 0 0 3px rgba(124, 58, 237, 0.18);
+  --ring-forest: 0 0 0 3px rgba(5, 150, 105, 0.20);
+
+  /* Motion — restrained, editorial */
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:   140ms;
+  --dur-base:   240ms;
+  --dur-slow:   520ms;
+}
+
+/* ============================================================
+   SEMANTIC TYPE CLASSES
+   Use these instead of restating font/size/weight everywhere.
+   ============================================================ */
+.sn-eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-2);
+}
+
+.sn-display {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-display);
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+
+.sn-h1 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-display);
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+.sn-h2 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+.sn-h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+.sn-h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-h4);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+.sn-h5 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-h5);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+.sn-h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-h6);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+
+.sn-lead {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-1);
+}
+
+.sn-body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-1);
+}
+
+.sn-meta {
+  font-family: var(--font-sans);
+  font-size: var(--fs-meta);
+  line-height: var(--lh-normal);
+  color: var(--fg-2);
+}
+
+.sn-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+
+/* Inline accent helpers — used to colour single words in headlines
+   ("constant noise.", "discernment:", "diagnose."). */
+.sn-violet { color: var(--sn-violet); }
+.sn-forest { color: var(--sn-forest); }
+.sn-navy   { color: var(--sn-navy);   }
