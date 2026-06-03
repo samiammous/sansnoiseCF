@@ -10,3 +10,6 @@ html_handling = "drop-trailing-slash"
 [[kv_namespaces]]
 binding = "CONTACT_KV"
 id = "fba0a009d27d49c8a987bfe143361461"
+
+[vars]
+RESEND_API_KEY = ""
